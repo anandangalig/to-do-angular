@@ -4,11 +4,13 @@ import { Component } from '@angular/core'; //pulls in extra functionality and de
 @Component({
   selector: 'my-app',
   template: `
-  <h1>My First Angular 2 App</h1>
+  <div class="container">
+    <h1>My First Angular 2 App</h1>
+  </div>
   `
 })
 // Component Class Declaration section: includes the functionality of the component
 
 export class AppComponent {
 
-} // exports our components and makes it available for other components to use. 
+} // exports our components and makes it available for other components to use.

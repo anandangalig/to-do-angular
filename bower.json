@@ -6,5 +6,8 @@
     "Anand Angalig"
   ],
   "license": "ISC",
-  "homepage": "https://github.com/anandangalig/to-do-angular"
+  "homepage": "https://github.com/anandangalig/to-do-angular",
+  "dependencies": {
+    "bootstrap": "^3.3.7"
+  }
 }
