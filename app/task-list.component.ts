@@ -4,22 +4,22 @@ import { Task } from './task.model';
 @Component({
   selector: 'task-list',
   template: `
-  <select (change)="onChange($event.target.value)">
+  <select (change)="onChange($event.target.value)" class="filter">
     <option value="all">Show All</option>
     <option value="isDone">Show Done</option>
     <option value="notDone" selected="selected">Show Not Done</option>
   </select>
   <div *ngFor="let currentTask of childTaskList | completeness:selectedCompleteness">
-    <h3>{{ currentTask.description }}</h3>
+    <task-display [task]="currentTask"></task-display>
     <button (click)="editButtonHasBeenClicked(currentTask)">Edit</button>
   </div>
   `
 })
 
 export class TaskListComponent {
-  public selectedCompleteness: string = "notDone";
   @Input() childTaskList: Task[];
   @Output() clickSender = new EventEmitter();
+  public selectedCompleteness: string = "notDone";
   editButtonHasBeenClicked(taskToEdit: Task) {
     this.clickSender.emit(taskToEdit); //taskToEdit is being sent over to a different component via the bridge(event emitter)
   }

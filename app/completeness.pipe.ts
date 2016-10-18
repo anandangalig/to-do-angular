@@ -3,7 +3,7 @@ import {Task} from './task.model';
 
 @Pipe({
   name: "completeness",
-  pure: false
+  pure: false // it is stateful: tells Angular to check if the output has changed after each change detection cycle, causing it to update as soon as we change something about a task
 })
 
 export class CompletenessPipe implements PipeTransform { //PipeTransform is an interface definition inside of Angular Core
