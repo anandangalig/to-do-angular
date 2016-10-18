@@ -6,7 +6,16 @@ import { Component } from '@angular/core'; //pulls in extra functionality and de
   template: `
   <div class="container">
     <h1>My First Angular 2 App</h1>
-    <h3 (click)="doStuff()" *ngFor="let currentTask of tasks">{{ currentTask.description }}</h3>
+    <h3 (click)="showDetails(currentTask)" *ngFor="let currentTask of tasks">{{ currentTask.description }}</h3>
+    <h1>Edit Task</h1>
+      <div>
+        <label>Enter Task Description:</label>
+        <input [(ngModel)]="selectedTask.description">
+      </div>
+      <div>
+        <label>Enter Task ID:</label>
+        <input [(ngModel)]="selectedTask.id">
+      </div>
   </div>
   `
 })
@@ -19,8 +28,9 @@ export class AppComponent {
     new Task("Attend ITEM Meetup.", 2),
     new Task("Eat Lunch.", 3)
   ];
-  doStuff() {
-    alert("A task was clicked on!");
+  selectedTask: Task = this.tasks[0]; //?????WHY MAKE IT 0th INDEX????????
+  showDetails(clickedTask: Task) { // now this method will expect a Task object to be passed whenever it is called.
+    this.selectedTask = clickedTask;
   }
 }
 
