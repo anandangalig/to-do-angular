@@ -12,7 +12,7 @@ import { Task } from './task.model';
     <pies></pies>
     <task-list [childTaskList]="masterTaskList" (clickSender)="showDetails($event)"></task-list>
     <edit-task [childSelectedTask]="selectedTask" (doneClickedSender)="finishedEditing()"></edit-task>
-    <new-task (newTaskSender)="addTask($event)"></new-task>
+    <new-task (newTaskSender)="addTask($event)"></new-task> <!--$event now holds the new task object!-->
   </div>
   `
 })
@@ -30,7 +30,7 @@ export class AppComponent {
   selectedTask: Task = null; // here, the null makes the default item unselected, as it should be since it will be set by each edit button belonging to each task.
   showDetails(clickedTask: Task) { // now this method will expect a Task object to be passed whenever it is called.
     console.log(clickedTask);
-    this.selectedTask = clickedTask;
+    this.selectedTask = clickedTask; //this will help the edit button from 'task-list' showDetails to re-define sekectedTask and use for 'edit-task'
   }
   finishedEditing() {
     this.selectedTask = null;

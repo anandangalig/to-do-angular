@@ -13,7 +13,7 @@ import { Task } from './task.model';
       <label>Enter Task ID:</label>
       <input #newId>
       <button (click)="addClicked(newDescription.value, newId.value); newDescription.value='';
-        newId.value='';">Add</button>
+        newId.value='';">Add</button> <!--addClicked is triggered, values grabbed, then set back to empty fields-->
     </div>
   `
 })
